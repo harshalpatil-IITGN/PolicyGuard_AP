@@ -50,7 +50,18 @@ ERP_DATA_SOURCE: str = os.environ.get("ERP_DATA_SOURCE", "local")
 
 # ── Paths ────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = PROJECT_ROOT / "data"
+
+# Robust DATA_DIR resolution (supports both root-repo and backend-only deployment)
+_custom_data_dir = os.environ.get("DATA_DIR")
+if _custom_data_dir:
+    DATA_DIR = Path(_custom_data_dir).resolve()
+elif (PROJECT_ROOT / "data").exists():
+    DATA_DIR = PROJECT_ROOT / "data"
+elif (Path(__file__).resolve().parent / "data").exists():
+    DATA_DIR = Path(__file__).resolve().parent / "data"
+else:
+    DATA_DIR = PROJECT_ROOT / "data"
+
 LOCAL_ERP_DB_PATH = DATA_DIR / "local_erp.db"
 AUDIT_DB_PATH = DATA_DIR / "audit.db"
 VARIANCE_POLICY_PATH = DATA_DIR / "Variance_Policy.md"
