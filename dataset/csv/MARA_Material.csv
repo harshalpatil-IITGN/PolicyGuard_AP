@@ -1,0 +1,44 @@
+﻿MATNR,MAKTX,MTART,MATKL,MATKL_TEXT,MEINS,BSTME_DEFAULT,CATEGORY,HSN_SAC,GST_PCT
+11000101,OPC 53 Grade Cement,ROH,CEM01,"Cement, grey",KG,MT,bulk,2523,18
+11000102,PPC Cement,ROH,CEM02,"Cement, blended",KG,MT,bulk,2523,18
+11000201,TMT Bar Fe550D 12 mm,ROH,STL01,Reinforcement steel,KG,MT,bulk,7214,18
+11000202,TMT Bar Fe550D 16 mm,ROH,STL01,Reinforcement steel,KG,MT,bulk,7214,18
+11000203,TMT Bar Fe500D 25 mm,ROH,STL01,Reinforcement steel,KG,MT,bulk,7214,18
+11000210,Binding Wire 18 SWG,ROH,STL05,Binding wire,KG,KG,bulk,7214,18
+11000301,Coarse Aggregate 20 mm,ROH,AGG01,Aggregates,KG,MT,bulk,2517,5
+11000302,Coarse Aggregate 10 mm,ROH,AGG01,Aggregates,KG,MT,bulk,2517,5
+11000303,Manufactured Sand (M-Sand),ROH,AGG02,Sand,KG,MT,bulk,2517,5
+11000304,GSB Material,ROH,AGG03,Sub-base material,KG,MT,bulk,2517,5
+11000401,Ready Mix Concrete M25,ROH,RMC01,Ready-mix concrete,CUM,CUM,bulk,38245010,18
+11000402,Ready Mix Concrete M30,ROH,RMC01,Ready-mix concrete,CUM,CUM,bulk,38245010,18
+12000101,MCB 32A TP,HAWA,ELE01,Switchgear,EA,EA,manufactured,8536,18
+12000102,Distribution board 8-way,HAWA,ELE01,Switchgear,EA,EA,manufactured,8536,18
+12000103,Earthing electrode 3 m,HAWA,ELE02,Earthing,EA,EA,manufactured,8536,18
+12000201,LT XLPE cable 3.5C x 240 sq mm,HAWA,CAB01,Power cable,MTR,MTR,manufactured,8544,18
+12000202,DC solar cable 4 sq mm,HAWA,CAB02,Solar cable,MTR,MTR,manufactured,8544,18
+12000203,Control cable 12C x 1.5 sq mm,HAWA,CAB03,Control cable,MTR,MTR,manufactured,8544,18
+12000301,Safety helmet with chin strap,HAWA,PPE01,Head protection,EA,EA,manufactured,6506,18
+12000302,Full body harness double lanyard,HAWA,PPE02,Fall protection,EA,EA,manufactured,6506,18
+12000303,Safety shoes,HAWA,PPE03,Foot protection,PAIR,PAIR,manufactured,6506,18
+12000401,Mono PERC module 545 Wp,HAWA,SOL01,Solar modules,EA,EA,manufactured,85414300,12
+12000501,Desktop monitor 24 inch,HAWA,ITH02,IT peripherals,EA,EA,manufactured,8471,18
+13000101,String inverter 110 kW,NLAG,SOL02,Inverters,EA,EA,capex,85414300,12
+13000102,Module mounting structure (per MW),NLAG,SOL03,Mounting structures,SET,SET,capex,85414300,12
+13000201,"Laptop, 14 inch, 16 GB",NLAG,ITH01,Computers,EA,EA,capex,8471,18
+13000202,Network switch 24-port,NLAG,ITH03,Network equipment,EA,EA,capex,8471,18
+30000101,Skilled manpower (mason),DIEN,SRV01,Manpower supply,MANDAY,MANDAY,service,998519,18
+30000102,Semi-skilled manpower,DIEN,SRV01,Manpower supply,MANDAY,MANDAY,service,998519,18
+30000103,Unskilled manpower (helper),DIEN,SRV01,Manpower supply,MANDAY,MANDAY,service,998519,18
+30000201,Security guard 12-hour shift (monthly),DIEN,SRV02,Security services,MONTH,MONTH,service,998525,18
+30000301,Housekeeping staff (monthly),DIEN,SRV03,Facility services,MONTH,MONTH,service,998533,18
+30000401,Trailer freight Vadodara to Bhuj,DIEN,SRV04,Freight,TRIP,TRIP,service,996511,12
+30000402,"Tipper hire, site haulage",DIEN,SRV04,Freight,TRIP,TRIP,service,996511,12
+30000501,Crawler crane 80 T hire,DIEN,SRV05,Equipment hire,DAY,DAY,service,997313,18
+30000502,Hydra crane 14 T hire,DIEN,SRV05,Equipment hire,DAY,DAY,service,997313,18
+30000503,DG set 250 kVA hire,DIEN,SRV05,Equipment hire,MONTH,MONTH,service,997313,18
+30000601,Concrete cube testing (set of 3),DIEN,SRV06,Laboratory services,SET,SET,service,998346,18
+30000602,TMT tensile and bend test,DIEN,SRV06,Laboratory services,SAMPLE,SAMPLE,service,998346,18
+30000701,DG set AMC (quarterly),DIEN,SRV07,Maintenance contracts,QTR,QTR,service,998719,18
+30000801,ERP support hours,DIEN,SRV08,IT services,HR,HR,service,998313,18
+30000802,Managed network support (monthly),DIEN,SRV08,IT services,MONTH,MONTH,service,998313,18
+30000901,Site canteen meals,DIEN,SRV09,Canteen services,PLATE,PLATE,service,996337,5

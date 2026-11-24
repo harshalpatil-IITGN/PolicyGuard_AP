@@ -1,0 +1,141 @@
+﻿table,plain_table,column,plain_column,meaning
+Approver_Matrix,approver_matrix,MATRIX_ID,rule_id,"Row id of the approver rule, AM-01 to AM-17."
+Approver_Matrix,approver_matrix,TRIGGER,trigger,"What sends an invoice to this person: a line price or quantity variance, a receipt above the ordered quantity (OR-1), the PO cumulative limit (CUM-1), or the release of a stopped invoice (APR-1)."
+Approver_Matrix,approver_matrix,VALUE_BAND,value_band,"Band 1 (line up to Rs 1,00,000), Band 2 (up to Rs 10,00,000), Band 3 (above Rs 10,00,000), or Any."
+Approver_Matrix,approver_matrix,CATEGORY,categories,"Material categories the rule covers, separated by semicolons (bulk; manufactured; service; capex), or 'all categories'."
+Approver_Matrix,approver_matrix,WERKS,plant_code,"Plant the rule applies to, or All; plant codes match po_line.plant_code."
+Approver_Matrix,approver_matrix,APPROVER_ROLE,approver_role,"Job title of the approver, for example Plant accounts head for one site, Procurement head, or Financial controller in the CFO office."
+Approver_Matrix,approver_matrix,APPROVER_NAME,approver_name,Name of the person who receives the escalation.
+Approver_Matrix,approver_matrix,APPROVER_EMAIL,approver_email,Approver's email address (fictional; send test mail only to mailboxes you control).
+Approver_Matrix,approver_matrix,LEVEL,seniority_level,"Seniority: 1 = Plant accounts head, 2 = Procurement head, 3 = Financial controller, CFO office (most senior)."
+EKKO_PO_Header,po_header,EBELN,po_number,"Purchase order number, 10 digits starting 45."
+EKKO_PO_Header,po_header,BUKRS,company_code,"Group company that placed the PO: AI10 Ashvaka Infrastructure, AC20 Ashvaka Cement and Building Materials, AE30 Ashvaka Energy, AL40 Ashvaka Logistics and Warehousing."
+EKKO_PO_Header,po_header,BSART,po_type,Purchase order type; NB = standard purchase order (the only type here).
+EKKO_PO_Header,po_header,LIFNR,vendor_id,Vendor number; links to vendor.vendor_id.
+EKKO_PO_Header,po_header,VENDOR_NAME,vendor_name,Vendor name as held on the PO.
+EKKO_PO_Header,po_header,EKORG,purchasing_org,Purchasing organisation that owns the PO; AS01 is the group's single buying organisation.
+EKKO_PO_Header,po_header,EKGRP,buyer_group,"Purchasing group, the buyer team that raised the PO (P10 to P40)."
+EKKO_PO_Header,po_header,BEDAT,po_date,"Date the PO was created, dd.mm.yyyy."
+EKKO_PO_Header,po_header,WAERS,currency,Currency of the PO; always INR.
+EKKO_PO_Header,po_header,NETWR_TOTAL,po_net_value,"Total net value of the PO in rupees before GST, the sum of its lines excluding deleted lines; used for the PO cumulative limit."
+EKKO_PO_Header,po_header,ZTERM,payment_terms,"Payment terms code: NT30, NT45, NT60 = pay within 30, 45 or 60 days; MSME45 = 45 days for a registered MSME supplier."
+EKKO_PO_Header,po_header,LINE_COUNT,line_count,Number of lines on the PO.
+EKPO_PO_Item,po_line,EBELN,po_number,Purchase order number; links to po_header.
+EKPO_PO_Item,po_line,EBELP,po_item,"Line number on the PO: 10, 20, 30 or 40."
+EKPO_PO_Item,po_line,MATNR,material_id,Material or service number; links to material.
+EKPO_PO_Item,po_line,TXZ01,item_text,Short description of what was ordered.
+EKPO_PO_Item,po_line,MATKL,material_group,"Material group code, for example AGG01 aggregates, CEM01 cement, SRV01 manpower."
+EKPO_PO_Item,po_line,WERKS,plant_code,"Site that ordered and receives the item: 1001 Ahmedabad Head Office, 1002 Sanand Industrial Park Project, 1003 Dahej Terminal Expansion Project, 1004 Vadodara Ring Road Package 3, 2001 Vadodara Grinding Unit, 2002 Rajkot RMC Plant, 3001 Bhuj Solar Park Phase 2, 4001 Bhiwandi Distribution Centre."
+EKPO_PO_Item,po_line,KNTTP,account_assignment,"Where the cost is booked: P = project, K = cost centre, A = fixed asset, blank = bought into stock with no direct booking."
+EKPO_PO_Item,po_line,PSTYP,item_category,"Item category: 0 = standard goods item, D = service item."
+EKPO_PO_Item,po_line,MENGE,ordered_qty,"Quantity ordered, in the order unit (order_unit)."
+EKPO_PO_Item,po_line,BSTME,order_unit,"Order unit of the line (MT, KG, EA, MTR, CUM, MANDAY, MONTH, TRIP, DAY, SET and so on); all comparisons are made in this unit."
+EKPO_PO_Item,po_line,NETPR,net_price,Agreed net price before GST for the number of units in price_unit.
+EKPO_PO_Item,po_line,PEINH,price_unit,"How many units net_price is for: 1 or 100. Price per unit = net_price divided by price_unit, so 4,850 with price unit 100 is Rs 48.50 per unit."
+EKPO_PO_Item,po_line,NETWR,line_net_value,Net value of the line in rupees: ordered_qty x net_price / price_unit.
+EKPO_PO_Item,po_line,UEBTO,over_delivery_tolerance_pct,"Over-delivery tolerance as a percentage of the ordered quantity (2, 3, 5 or 10); blank means 0%."
+EKPO_PO_Item,po_line,ELIKZ,delivery_completed_flag,X = the buyer marked deliveries on this line as complete; blank otherwise. Under policy CL-1 this flag alone does not close the line.
+EKPO_PO_Item,po_line,EREKZ,final_invoice_flag,Final invoice indicator: X = a final invoice has been posted and the line is closed for further invoicing; blank otherwise.
+EKPO_PO_Item,po_line,LOEKZ,deletion_flag,Deletion indicator: L = the line has been deleted; blank otherwise.
+EKPO_PO_Item,po_line,STATUS,line_status,"Open or Closed; capitalisation varies (Open, OPEN, open) and some values carry a trailing space."
+EKPO_PO_Item,po_line,EINDT,delivery_date,"Scheduled delivery date, dd.mm.yyyy."
+EKPO_PO_Item,po_line,CHANGE_NOTE,buyer_note,"Last note from the buyer about the line, usually blank."
+MARA_Material,material,MATNR,material_id,Material or service number.
+MARA_Material,material,MAKTX,description,Name of the material or service.
+MARA_Material,material,MTART,material_type,"Material type: ROH = raw material, HAWA = traded goods, NLAG = non-stock item, DIEN = service."
+MARA_Material,material,MATKL,material_group,Material group code.
+MARA_Material,material,MATKL_TEXT,material_group_text,"Plain name of the material group, for example Aggregates or Manpower supply."
+MARA_Material,material,MEINS,base_unit,"Base unit the material is counted in (KG, EA, MTR, CUM, MANDAY and so on); unit_conversion factors are stated in this unit."
+MARA_Material,material,BSTME_DEFAULT,usual_order_unit,Unit the material is usually ordered in; the actual order unit of a PO line is po_line.order_unit.
+MARA_Material,material,CATEGORY,category,"Policy category: bulk, manufactured, service or capex; it sets the price and quantity tolerances."
+MARA_Material,material,HSN_SAC,hsn_sac_code,"GST classification code: HSN for goods, SAC (starting 99) for services."
+MARA_Material,material,GST_PCT,gst_rate_pct,"GST rate in percent: 5, 12 or 18."
+MARM_UoM_Conversion,unit_conversion,MATNR,material_id,Material the conversion belongs to; links to material.
+MARM_UoM_Conversion,unit_conversion,MAKTX,description,Name of the material.
+MARM_UoM_Conversion,unit_conversion,MEINH,alternative_unit,"The other unit, for example MT, BAG, CUM, KM, DRUM, BOX, COIL or PAL."
+MARM_UoM_Conversion,unit_conversion,UMREZ,base_units,Number of base units in the conversion (for example 50 in '1 BAG = 50 KG').
+MARM_UoM_Conversion,unit_conversion,UMREN,alternative_units,Number of alternative units in the conversion; always 1 here.
+MARM_UoM_Conversion,unit_conversion,MEINS,base_unit,"Base unit of the material (KG, MTR or EA)."
+MARM_UoM_Conversion,unit_conversion,READS_AS,reads_as,"The conversion written out, for example '1 BAG = 50 KG'; factors are specific to each material."
+MSEG_Goods_Receipt,goods_receipt,MBLNR,receipt_doc_number,"Material document number of the receipt, reversal or return."
+MSEG_Goods_Receipt,goods_receipt,MJAHR,receipt_doc_year,Year of the material document; always 2026.
+MSEG_Goods_Receipt,goods_receipt,ZEILE,receipt_doc_line,"Line within the material document, usually 1."
+MSEG_Goods_Receipt,goods_receipt,BWART,movement_type,"Movement type: 101 = goods or service received, 102 = a 101 reversed (cancelled), 122 = goods returned to the vendor. Quantities are always positive, so 102 and 122 must be subtracted."
+MSEG_Goods_Receipt,goods_receipt,BUDAT,posting_date,"Date the movement was posted; mostly dd.mm.yyyy, some yyyy-mm-dd."
+MSEG_Goods_Receipt,goods_receipt,EBELN,po_number,PO the receipt was posted against.
+MSEG_Goods_Receipt,goods_receipt,EBELP,po_item,PO line the receipt was posted against.
+MSEG_Goods_Receipt,goods_receipt,MATNR,material_id,Material or service received.
+MSEG_Goods_Receipt,goods_receipt,WERKS,plant_code,Site that received it.
+MSEG_Goods_Receipt,goods_receipt,LIFNR,vendor_id,Vendor who delivered.
+MSEG_Goods_Receipt,goods_receipt,ERFMG,qty_entered,"Quantity as entered at the gate or site, in qty_unit_entered."
+MSEG_Goods_Receipt,goods_receipt,ERFME,qty_unit_entered,"Unit as entered at the gate or site (MT, KG, BAG, BOX, DRUM, KM, CUM, COIL, PAL, EA, MANDAY and so on); it can differ from the PO order unit."
+MSEG_Goods_Receipt,goods_receipt,REF_MBLNR,original_receipt_doc,For a 102 or 122: the receipt document it cancels or returns against; blank for 101.
+MSEG_Goods_Receipt,goods_receipt,REF_ZEILE,original_receipt_line,For a 102 or 122: the line of that original receipt; blank for 101.
+MSEG_Goods_Receipt,goods_receipt,DELIVERY_NOTE,delivery_note_ref,"Vendor's delivery challan or delivery note number, or the service entry sheet number (SES) for services; written in several styles."
+MSEG_Goods_Receipt,goods_receipt,WB_SLIP,weighbridge_slip,Weighbridge slip number for bulk loads weighed at the site; blank otherwise.
+MSEG_Goods_Receipt,goods_receipt,VEHICLE_NO,vehicle_number,Registration number of the truck that delivered; blank for services.
+MSEG_Goods_Receipt,goods_receipt,SGTXT,remark,"Free text note from the storekeeper, mainly on reversals and returns; usually blank."
+RBKP_Invoice_Header,invoice_header,BELNR,invoice_doc_number,"Internal document number of the parked invoice, 5105600001 onwards; the queue is worked in this order."
+RBKP_Invoice_Header,invoice_header,GJAHR,fiscal_year,Year of the invoice document; always 2026.
+RBKP_Invoice_Header,invoice_header,BUKRS,company_code,"Group company being billed: AI10 Ashvaka Infrastructure, AC20 Ashvaka Cement and Building Materials, AE30 Ashvaka Energy, AL40 Ashvaka Logistics and Warehousing."
+RBKP_Invoice_Header,invoice_header,LIFNR,vendor_id,Vendor number; links to vendor.vendor_id.
+RBKP_Invoice_Header,invoice_header,VENDOR_NAME,vendor_name,Vendor name as printed on the invoice; spelling and legal suffix vary from the vendor master.
+RBKP_Invoice_Header,invoice_header,VENDOR_GSTIN,vendor_gstin,Vendor's 15 character GST number; the first two digits are the state code.
+RBKP_Invoice_Header,invoice_header,XBLNR,vendor_invoice_number,"The vendor's own invoice number as printed, in many styles (for example PQL/26-27/0682 or 000531)."
+RBKP_Invoice_Header,invoice_header,BLDAT,invoice_date,"Invoice date as printed by the vendor, in several formats (07-09-2026, 11-09-26, 11/09/2026, Sep 7, 2026, 2026-09-07 and others)."
+RBKP_Invoice_Header,invoice_header,BUDAT,posting_date,"Accounting posting date, dd.mm.yyyy."
+RBKP_Invoice_Header,invoice_header,PARKED_ON,parked_at,"When accounts payable parked the invoice: yyyy-mm-dd hh:mm:ss in IST, or with a T and Z meaning UTC."
+RBKP_Invoice_Header,invoice_header,PARKED_BY,parked_by,User id of the accounts payable clerk who parked it.
+RBKP_Invoice_Header,invoice_header,REF_PO,po_numbers_quoted,"PO number or numbers quoted by the vendor; several are separated by a comma, semicolon or slash."
+RBKP_Invoice_Header,invoice_header,WAERS,currency,Currency; always INR.
+RBKP_Invoice_Header,invoice_header,RMWWR,gross_amount,"Invoice total in rupees including GST; usually a plain number, sometimes text with digit grouping in Indian (25,60,630.58) or international (2,687,756.80) style."
+RBKP_Invoice_Header,invoice_header,WMWST1,gst_amount,Total GST on the invoice in rupees.
+RBKP_Invoice_Header,invoice_header,STATUS,status,"Parked, meaning saved and waiting for the match before it can be posted."
+RBKP_Invoice_Header,invoice_header,ATTACHMENT,invoice_pdf_path,"Path to the PDF image of the invoice as received, when there is one (40 of 213); some are phone photos or scans with no text layer."
+RSEG_Invoice_Item,invoice_line,BELNR,invoice_doc_number,Parked invoice this line belongs to; links to invoice_header.
+RSEG_Invoice_Item,invoice_line,BUZEI,invoice_line_number,"Line number on the invoice, 1 to 6."
+RSEG_Invoice_Item,invoice_line,EBELN,po_number,PO number the vendor quoted for this line.
+RSEG_Invoice_Item,invoice_line,EBELP,po_item_quoted,"PO line or lines quoted: usually 10, 20, 30, sometimes with leading zeros (00010) or two items in one value (10/20, 10 & 20, 10, 20, 10+20)."
+RSEG_Invoice_Item,invoice_line,MATNR,material_id,Material or service billed; links to material.
+RSEG_Invoice_Item,invoice_line,ITEM_TEXT,item_text,Description as printed by the vendor.
+RSEG_Invoice_Item,invoice_line,HSN_SAC,hsn_sac_code,GST classification code printed on the line.
+RSEG_Invoice_Item,invoice_line,MENGE,billed_qty,"Quantity billed, in billed_unit."
+RSEG_Invoice_Item,invoice_line,MEINS,billed_unit,"Unit as written by the vendor, including spellings such as TON, Tonne, M.T., KGS, Nos, PCS, Man-days, Bags or Hrs; the policy unit table maps them."
+RSEG_Invoice_Item,invoice_line,UNIT_PRICE,unit_price,Price per billed unit in rupees before GST.
+RSEG_Invoice_Item,invoice_line,WRBTR,line_net_amount,Line amount in rupees before GST; this sets the value band and is compared with the value at PO price.
+RSEG_Invoice_Item,invoice_line,TAX_PCT,gst_rate_pct,"GST rate on the line: 5, 12 or 18."
+RSEG_Invoice_Item,invoice_line,TAX_AMT,gst_amount,GST on the line in rupees.
+RSEG_Prior_Invoiced,prior_invoice,BELNR,invoice_doc_number,Document number of an earlier invoice already posted on the same PO lines (5105500101 onwards).
+RSEG_Prior_Invoiced,prior_invoice,GJAHR,fiscal_year,Year of the document; always 2026.
+RSEG_Prior_Invoiced,prior_invoice,BUZEI,invoice_line_number,Line of that earlier invoice; always 1 here.
+RSEG_Prior_Invoiced,prior_invoice,LIFNR,vendor_id,Vendor who sent it.
+RSEG_Prior_Invoiced,prior_invoice,XBLNR,vendor_invoice_number,Vendor's own invoice number on the earlier invoice.
+RSEG_Prior_Invoiced,prior_invoice,BLDAT,invoice_date,"Date on the earlier invoice, dd.mm.yyyy."
+RSEG_Prior_Invoiced,prior_invoice,BUDAT,posting_date,"Date it was posted, dd.mm.yyyy."
+RSEG_Prior_Invoiced,prior_invoice,EBELN,po_number,PO it was posted against.
+RSEG_Prior_Invoiced,prior_invoice,EBELP,po_item,PO line it was posted against.
+RSEG_Prior_Invoiced,prior_invoice,MATNR,material_id,Material or service invoiced.
+RSEG_Prior_Invoiced,prior_invoice,MENGE,invoiced_qty,"Quantity invoiced, already in the PO order unit."
+RSEG_Prior_Invoiced,prior_invoice,BSTME,order_unit,PO order unit of that quantity.
+RSEG_Prior_Invoiced,prior_invoice,UNIT_PRICE,unit_price,Price per order unit in rupees before GST.
+RSEG_Prior_Invoiced,prior_invoice,WRBTR,net_amount,Net amount in rupees before GST.
+RSEG_Prior_Invoiced,prior_invoice,FINAL_INVOICE,final_invoice_flag,X when the vendor marked this as the final invoice for the line; blank otherwise.
+RSEG_Prior_Invoiced,prior_invoice,STATUS,status,"Posted, or Reversed (a reversed invoice was cancelled and takes no quantity)."
+RSEG_Prior_Invoiced,prior_invoice,REVERSAL_DATE,reversal_date,"Date the invoice was reversed, dd.mm.yyyy; blank if still posted."
+Vendor_Master_Extract,vendor,LIFNR,vendor_id,Vendor number.
+Vendor_Master_Extract,vendor,NAME1,legal_name,Vendor's registered name.
+Vendor_Master_Extract,vendor,CATEGORY_LABEL,supplies,"What the vendor supplies, for example Cement, Cables or Manpower supply."
+Vendor_Master_Extract,vendor,STREET,street,Street address.
+Vendor_Master_Extract,vendor,CITY,city,City.
+Vendor_Master_Extract,vendor,STATE,state,State.
+Vendor_Master_Extract,vendor,STATE_CODE,gst_state_code,"Two digit GST state code: 24 Gujarat, 27 Maharashtra, 29 Karnataka, 08 Rajasthan, 33 Tamil Nadu, 07 Delhi, 23 Madhya Pradesh."
+Vendor_Master_Extract,vendor,PSTLZ,pin_code,Six digit postal PIN code.
+Vendor_Master_Extract,vendor,PAN,pan,Vendor's 10 character income tax PAN.
+Vendor_Master_Extract,vendor,GSTIN,gstin,Vendor's registered 15 character GST number.
+Vendor_Master_Extract,vendor,MSME,is_msme,"Y if the vendor is a registered micro, small or medium enterprise, N if not."
+Vendor_Master_Extract,vendor,UDYAM_NO,udyam_number,MSME registration number (UDYAM-...); blank for non-MSME vendors.
+Vendor_Master_Extract,vendor,CONTACT_NAME,contact_name,Vendor's sales contact.
+Vendor_Master_Extract,vendor,CONTACT_EMAIL,contact_email,Contact's email (fictional).
+Vendor_Master_Extract,vendor,ACCOUNTS_EMAIL,accounts_email,Vendor's accounts team email (fictional).
+Vendor_Master_Extract,vendor,PHONE,phone,Vendor phone number (fictional).
+Vendor_Master_Extract,vendor,ZTERM,payment_terms,"Payment terms code: NT30, NT45, NT60 = 30, 45 or 60 days; MSME45 = 45 days for an MSME."

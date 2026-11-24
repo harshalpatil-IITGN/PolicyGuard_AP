@@ -1,0 +1,19 @@
+﻿rule_id,trigger,value_band,categories,plant_code,approver_role,approver_name,approver_email,seniority_level,slack_user_id
+AM-01,Line price or quantity variance,Band 1,bulk; manufactured; service,1001,"Plant accounts head, Ahmedabad Head Office",Hiral Kothari,hiral.kothari@ashvakagroup.in,1,U0C7X397H4Z
+AM-02,Line price or quantity variance,Band 1,bulk; manufactured; service,1002,"Plant accounts head, Sanand Industrial Park Project",Dhruv Desai,dhruv.desai@ashvakagroup.in,1,U0C7X397H4Z
+AM-03,Line price or quantity variance,Band 1,bulk; manufactured; service,1003,"Plant accounts head, Dahej Terminal Expansion Project",Foram Patel,foram.patel@ashvakagroup.in,1,U0C7X397H4Z
+AM-04,Line price or quantity variance,Band 1,bulk; manufactured; service,1004,"Plant accounts head, Vadodara Ring Road Package 3",Yash Joshi,yash.joshi@ashvakagroup.in,1,U0C7X397H4Z
+AM-05,Line price or quantity variance,Band 1,bulk; manufactured; service,2001,"Plant accounts head, Vadodara Grinding Unit",Ronak Jadeja,ronak.jadeja@ashvakagroup.in,1,U0C7X397H4Z
+AM-06,Line price or quantity variance,Band 1,bulk; manufactured; service,2002,"Plant accounts head, Rajkot RMC Plant",Zoya Solanki,zoya.solanki@ashvakagroup.in,1,U0C7X397H4Z
+AM-07,Line price or quantity variance,Band 1,bulk; manufactured; service,3001,"Plant accounts head, Bhuj Solar Park Phase 2",Farhan Rathod,farhan.rathod@ashvakagroup.in,1,U0C7X397H4Z
+AM-08,Line price or quantity variance,Band 1,bulk; manufactured; service,4001,"Plant accounts head, Bhiwandi Distribution Centre",Aakash Reddy,aakash.reddy@ashvakagroup.in,1,U0C7X397H4Z
+AM-09,Line price or quantity variance,Band 1,capex,All,"Procurement head, materials",Amit Fernandes,amit.fernandes@ashvakagroup.in,2,U0C7X397H4Z
+AM-10,Line price or quantity variance,Band 2,bulk; manufactured,All,"Procurement head, materials",Amit Fernandes,amit.fernandes@ashvakagroup.in,2,U0C7X397H4Z
+AM-11,Line price or quantity variance,Band 2,service,All,"Procurement head, services",Harsh Iyer,harsh.iyer@ashvakagroup.in,2,U0C7X397H4Z
+AM-12,Line price or quantity variance,Band 2,capex,All,"Financial controller, CFO office",Kruti Jadeja,kruti.jadeja@ashvakagroup.in,3,U0C7X397H4Z
+AM-13,Line price or quantity variance,Band 3,all categories,All,"Financial controller, CFO office",Kruti Jadeja,kruti.jadeja@ashvakagroup.in,3,U0C7X397H4Z
+AM-14,Receipt above ordered quantity (OR-1),Any,bulk; manufactured; capex,All,"Procurement head, materials",Amit Fernandes,amit.fernandes@ashvakagroup.in,2,U0C7X397H4Z
+AM-15,Receipt above ordered quantity (OR-1),Any,service,All,"Procurement head, services",Harsh Iyer,harsh.iyer@ashvakagroup.in,2,U0C7X397H4Z
+AM-16,PO cumulative limit (CUM-1),Any,all categories,All,"Financial controller, CFO office",Kruti Jadeja,kruti.jadeja@ashvakagroup.in,3,U0C7X397H4Z
+AM-17,Release of a stopped invoice (APR-1),Any,all categories,All,"Financial controller, CFO office",Kruti Jadeja,kruti.jadeja@ashvakagroup.in,3,U0C7X397H4Z
+,,,,,,,,,

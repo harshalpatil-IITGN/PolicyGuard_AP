@@ -1,0 +1,26 @@
+# PolicyGuard AP — Backend Dependencies
+# All free-tier / open-source
+
+# Web framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+# Airtable integration
+pyairtable==3.0.1
+
+# Slack integration
+slack-sdk==3.33.5
+
+# Google Gemini AI (free tier — gemini-2.5-flash)
+google-genai==1.14.0
+
+# PDF handling
+PyPDF2==3.0.1
+
+# Data processing
+pydantic==2.10.4
+python-dotenv==1.0.1
+python-multipart==0.0.20
+
+# CORS
+httpx==0.28.1

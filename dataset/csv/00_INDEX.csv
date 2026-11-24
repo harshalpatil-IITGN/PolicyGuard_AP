@@ -1,0 +1,14 @@
+﻿Workbook_Contents
+Autopilot Ahmedabad: Three-way match enterprise export
+"System of origin: SAP S/4HANA MM and FI (EKKO, EKPO, MSEG, RBKP, RSEG, MARA, MARM) with the group variance policy"
+Organisation: Ashvaka Industries Group (fictional). Currency INR. Timezone IST (UTC+05:30).
+Data as of: 09 Oct 2026 18:00 IST
+"Sheets: EKKO_PO_Header, EKPO_PO_Item, MSEG_Goods_Receipt, RBKP_Invoice_Header, RSEG_Invoice_Item, RSEG_Prior_Invoiced, MARA_Material, MARM_UoM_Conversion, Approver_Matrix, Vendor_Master_Extract, Field_Dictionary"
+"Folders: documents/invoices/ (PDF images of some of the parked invoices, as received from vendors); reference/ (the group's invoice variance policy)"
+"Treat 09 Oct 2026, 18:00 IST as the current time, and keep the business date as a setting in your build."
+Send outbound mail only to mailboxes you control. Every address in this pack is fictional.
+Quantities in EKPO and RSEG_Prior_Invoiced are in the PO order unit. Receipt and invoice quantities are in the unit shown on the row.
+The variance policy is in reference/Variance_Policy.md and .pdf.
+"Fully synthetic. No real company, person, account or identifier."
+"Import into your own systems of record, document store and mail channel, then work through them."
+"Google integrations are in beta for this event: do not use Google Drive, Sheets or Gmail for this data."
