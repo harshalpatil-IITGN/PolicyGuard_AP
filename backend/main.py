@@ -395,6 +395,18 @@ async def update_invoice_status(invoice_doc_number: str, req: UpdateStatusReques
     return {"success": True, "invoice_doc_number": invoice_doc_number, "status": matched_status.value}
 
 
+@app.post("/api/invoices/reset-all")
+async def reset_all_invoices_endpoint():
+    """Reset all invoice statuses back to Parked."""
+    try:
+        count = at.reset_all_invoices(InvoiceStatus.PARKED)
+        audit.log_event("ALL", "STATUS_RESET_ALL", "Parked", "user", f"Reset {count} invoices to Parked")
+        return {"success": True, "message": f"Successfully reset {count} invoices to Parked", "count": count}
+    except Exception as e:
+        logger.exception("Error resetting all invoices")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 class ReleaseStopRequest(BaseModel):
     reason: str = "Authorized release under clause APR-1 by Financial Controller"
     controller_name: str = "Kruti Jadeja (Financial Controller, CFO Office)"

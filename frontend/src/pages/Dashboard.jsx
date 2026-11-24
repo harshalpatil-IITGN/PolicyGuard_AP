@@ -9,6 +9,7 @@ export default function Dashboard({ onNavigateToUpload }) {
   const [error, setError] = useState(null);
   const [batchRunning, setBatchRunning] = useState(false);
   const [batchResults, setBatchResults] = useState(null);
+  const [resettingAll, setResettingAll] = useState(false);
 
   // Search & Filter state
   const [searchTerm, setSearchTerm] = useState('');
@@ -149,6 +150,24 @@ export default function Dashboard({ onNavigateToUpload }) {
       fetchInvoices();
     } catch (e) {
       setError(e.message);
+    }
+  };
+
+  // Reset ALL invoices back to Parked
+  const resetAllInvoices = async () => {
+    if (!window.confirm("Are you sure you want to reset ALL invoices back to 'Parked'?")) {
+      return;
+    }
+    setResettingAll(true);
+    setError(null);
+    try {
+      const res = await fetch(`${API}/invoices/reset-all`, { method: 'POST' });
+      if (!res.ok) throw new Error(await res.text());
+      await fetchInvoices();
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setResettingAll(false);
     }
   };
 
@@ -360,13 +379,21 @@ export default function Dashboard({ onNavigateToUpload }) {
               Showing {filteredInvoices.length} of {invoices.length} total invoice records
             </p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={fetchInvoices}
               disabled={loading}
               className="px-3.5 py-1.5 text-xs bg-white border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 transition-colors shadow-sm"
             >
               {loading ? '⏳' : '🔄'} Refresh
+            </button>
+            <button
+              onClick={resetAllInvoices}
+              disabled={resettingAll || loading}
+              className="px-3.5 py-1.5 text-xs bg-white border border-rose-300 text-rose-700 hover:bg-rose-50 rounded-lg font-medium transition-colors shadow-sm"
+              title="Reset all invoice statuses back to Parked"
+            >
+              {resettingAll ? '⏳ Resetting...' : '↺ Reset All to Parked'}
             </button>
             <button
               onClick={processAll}

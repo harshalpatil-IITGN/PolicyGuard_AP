@@ -253,6 +253,22 @@ def update_invoice_status(record_id: str, status: InvoiceStatus) -> None:
         logger.info(f"[AIRTABLE] Updated invoice {record_id} status to {status.value}")
 
 
+def reset_all_invoices(status: InvoiceStatus = InvoiceStatus.PARKED) -> int:
+    """Reset status of all invoice_header records back to Parked."""
+    if ERP_DATA_SOURCE == "local":
+        with _get_db() as conn:
+            cursor = conn.execute("UPDATE invoice_header SET status = ?", (status.value,))
+            count = cursor.rowcount
+            conn.commit()
+            logger.info(f"[LOCAL ERP] Reset {count} invoices to {status.value}")
+            return count
+    else:
+        records = _table(AT_INVOICE_HEADER).all()
+        for r in records:
+            _table(AT_INVOICE_HEADER).update(r["id"], {"status": status.value})
+        return len(records)
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 # Invoice Lines
 # ═══════════════════════════════════════════════════════════════════════════
